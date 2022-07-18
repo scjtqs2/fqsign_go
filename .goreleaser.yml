@@ -5,7 +5,7 @@ before:
     - go mod tidy
 builds:
   - id: nowin-cli
-    main: ./cmd/client/*
+    main: ./cmd/client/
     env:
       - CGO_ENABLED=0
       - GO111MODULE=on
@@ -32,7 +32,7 @@ builds:
     ldflags:
       - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
   - id: win-cli
-    main: ./cmd/client/*
+    main: ./cmd/client/
     env:
       - CGO_ENABLED=0
       - GO111MODULE=on
@@ -53,7 +53,7 @@ builds:
     ldflags:
       - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
   - id: nowin-server
-    main: ./cmd/server/*
+    main: ./cmd/server/
     env:
       - CGO_ENABLED=0
       - GO111MODULE=on
@@ -80,7 +80,7 @@ builds:
     ldflags:
       - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
   - id: win-server
-    main: ./cmd/server/*
+    main: ./cmd/server/
     env:
       - CGO_ENABLED=0
       - GO111MODULE=on
