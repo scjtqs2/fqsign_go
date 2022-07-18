@@ -34,10 +34,13 @@ type Cdpc struct {
 // NewCdpc 初始化类
 func NewCdpc(user *config.UserOption, qqpush config.QqPush) *Cdpc {
 	gCurCookieJar, _ := cookiejar.New(nil) // 持久化 cookie
+	if user.Domain == "" {
+		user.Domain = "https://dash.cdpc.fun"
+	}
 	return &Cdpc{
 		User:       user,
 		Qqpush:     qqpush,
-		Domain:     "https://dash.cdpc.fun",
+		Domain:     user.Domain,
 		Client:     http.Client{Timeout: time.Second * 6, Jar: gCurCookieJar},
 		ConfigName: config.ConfigNameCdpc,
 	}

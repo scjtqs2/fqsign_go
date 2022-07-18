@@ -35,10 +35,13 @@ type Vpork struct {
 // NewVpork 初始化 vpork 类
 func NewVpork(user *config.UserOption, qqpush config.QqPush) *Vpork {
 	gCurCookieJar, _ := cookiejar.New(nil) // 持久化 cookie
+	if user.Domain == "" {
+		user.Domain = "https://forever.pork16.com"
+	}
 	return &Vpork{
 		User:       user,
 		Qqpush:     qqpush,
-		Domain:     "https://forever.pork16.com",
+		Domain:     user.Domain,
 		Client:     http.Client{Timeout: time.Second * 6, Jar: gCurCookieJar},
 		ConfigName: config.ConfigNameVpork,
 	}

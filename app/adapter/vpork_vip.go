@@ -35,10 +35,13 @@ type VporkVip struct {
 // NewVporkVip 初始化 类
 func NewVporkVip(user *config.UserOption, qqpush config.QqPush) *VporkVip {
 	gCurCookieJar, _ := cookiejar.New(nil) // 持久化 cookie
+	if user.Domain == "" {
+		user.Domain = "https://prime.ypork.com"
+	}
 	return &VporkVip{
 		User:       user,
 		Qqpush:     qqpush,
-		Domain:     "https://prime.ypork.com",
+		Domain:     user.Domain,
 		Client:     http.Client{Timeout: time.Second * 6, Jar: gCurCookieJar},
 		ConfigName: config.ConfigNameVporkVip,
 	}

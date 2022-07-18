@@ -35,10 +35,13 @@ type Liuns struct {
 // NewLiuns 初始化类
 func NewLiuns(user *config.UserOption, qqpush config.QqPush) *Liuns {
 	gCurCookieJar, _ := cookiejar.New(nil) // 持久化 cookie
+	if user.Domain == "" {
+		user.Domain = "https://liuns.com"
+	}
 	return &Liuns{
 		User:       user,
 		Qqpush:     qqpush,
-		Domain:     "https://liuns.com",
+		Domain:     user.Domain,
 		Client:     http.Client{Timeout: time.Second * 6, Jar: gCurCookieJar},
 		ConfigName: config.ConfigNameLiuns,
 	}

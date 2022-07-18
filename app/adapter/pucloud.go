@@ -35,10 +35,13 @@ type Pucloud struct {
 // NewPucloud 初始化类
 func NewPucloud(user *config.UserOption, qqpush config.QqPush) *Pucloud {
 	gCurCookieJar, _ := cookiejar.New(nil) // 持久化 cookie
+	if user.Domain == "" {
+		user.Domain = "https://pucloud.vip"
+	}
 	return &Pucloud{
 		User:       user,
 		Qqpush:     qqpush,
-		Domain:     "https://pucloud.vip",
+		Domain:     user.Domain,
 		Client:     http.Client{Timeout: time.Second * 6, Jar: gCurCookieJar},
 		ConfigName: config.ConfigNamePucloud,
 	}

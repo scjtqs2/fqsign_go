@@ -22,4 +22,5 @@ type UserOption struct {
 	UserPassword string `yaml:"user_password"` // 账号密码
 	Cqq          string `yaml:"cqq"`           // 单独配置的推送配置，选填
 	QqToken      string `yaml:"qq_token"`      // 单独的推送配置，选填
+	Domain       string `yaml:"domain"`        // 设定自定义的配置域名，用于机场换地址后免编译更新覆盖地址。或者同样一套架构的新机场。
 }
