@@ -1,0 +1,7 @@
+version: 3
+services:
+  fqsign:
+    image: scjtqs/fqsign:latest
+    restart: always
+    volumes:
+      - ./config.yaml:/app/config.yaml     #传入配置文件
