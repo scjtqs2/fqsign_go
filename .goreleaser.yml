@@ -116,22 +116,33 @@ changelog:
       - go mod tidy
 
 archives:
-  - id: binary
+  - id: binary-cli
     builds:
       - win-cli
-      - win-server
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    name_template: "{{ .ProjectName }}_cli_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
         format: binary
-  - id: nowin
+  - id: nowin-cli
     builds:
       - nowin-cli
       - win-cli
-      - nowin-server
-      - win-server
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    name_template: "{{ .ProjectName }}_cli_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
         format: zip
-
+  - id: binary-server
+    builds:
+      - win-server
+    name_template: "{{ .ProjectName }}_server_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    format_overrides:
+      - goos: windows
+        format: binary
+  - id: nowin-server
+    builds:
+      - nowin-server
+      - win-server
+    name_template: "{{ .ProjectName }}_server_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    format_overrides:
+      - goos: windows
+        format: zip
