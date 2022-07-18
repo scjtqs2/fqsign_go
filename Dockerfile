@@ -14,7 +14,7 @@ COPY ./ .
 RUN set -ex \
     && BUILD=`date +%FT%T%z` \
     && COMMIT_SHA1=`git rev-parse HEAD` \
-    && go build -ldflags "-s -w -extldflags '-static' -X main.Version=${COMMIT_SHA1}" -X main.Build=${BUILD} -v -o fqsign ./cmd/server/* \
+    && go build -ldflags "-s -w -extldflags '-static' -X main.Version=${COMMIT_SHA1} -X main.Build=${BUILD}" -v -o fqsign ./cmd/server/* \
     && mv config.yaml.dist config.yaml
 
 
