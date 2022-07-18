@@ -30,7 +30,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=v{{.Version}}
+      - -s -w -X main.Version=v{{.Version}} -X main.Build={{ .BUILD}}
   - id: win-cli
     main: ./cmd/client/
     env:
@@ -51,7 +51,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=v{{.Version}}
+      - -s -w -X main.Version=v{{.Version}}  -X main.Build={{ .BUILD}}
   - id: nowin-server
     main: ./cmd/server/
     env:
@@ -78,7 +78,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=v{{.Version}}
+      - -s -w -X main.Version=v{{.Version}}  -X main.Build={{ .BUILD}}
   - id: win-server
     main: ./cmd/server/
     env:
@@ -99,7 +99,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=v{{.Version}}
+      - -s -w -X main.Version=v{{.Version}}  -X main.Build={{ .BUILD}}
 
 checksum:
   name_template: "{{ .ProjectName }}_checksums.txt"
