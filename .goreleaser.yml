@@ -30,7 +30,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
+      - -s -w -X main.Version=v{{.Version}}
   - id: win-cli
     main: ./cmd/client/
     env:
@@ -51,7 +51,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
+      - -s -w -X main.Version=v{{.Version}}
   - id: nowin-server
     main: ./cmd/server/
     env:
@@ -78,7 +78,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
+      - -s -w -X main.Version=v{{.Version}}
   - id: win-server
     main: ./cmd/server/
     env:
@@ -99,7 +99,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.Version=${COMMIT_SHA1}|${BUILD}
+      - -s -w -X main.Version=v{{.Version}}
 
 checksum:
   name_template: "{{ .ProjectName }}_checksums.txt"
