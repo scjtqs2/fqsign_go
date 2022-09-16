@@ -28,6 +28,9 @@ func Post(client http.Client, url string, header http.Header, body []byte) ([]by
 	if res != nil {
 		defer res.Body.Close()
 	}
+	if err != nil {
+		return nil, err
+	}
 	return io.ReadAll(res.Body)
 }
 

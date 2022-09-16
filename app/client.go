@@ -31,6 +31,12 @@ func RunClient(ct *dig.Container) {
 				app = adapter.NewVpork(option, cfg.QqPush)
 			case config.ConfigNameVporkVip: // 初始化 vpork_vip
 				app = adapter.NewVporkVip(option, cfg.QqPush)
+			case config.ConfigNameCdpc:
+				app = adapter.NewCdpc(option, cfg.QqPush)
+			case config.ConfigNameLiuns:
+				app = adapter.NewLiuns(option, cfg.QqPush)
+			case config.ConfigNamePucloud:
+				app = adapter.NewPucloud(option, cfg.QqPush)
 			}
 			err = app.Login()
 			if err != nil {

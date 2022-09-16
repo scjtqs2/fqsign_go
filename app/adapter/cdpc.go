@@ -97,7 +97,7 @@ func (v *Cdpc) Checkin() error {
 
 // Logout 登出接口
 func (v *Cdpc) Logout() error {
-	posturl := fmt.Sprintf("%s/user/logout")
+	posturl := fmt.Sprintf("%s/user/logout", v.Domain)
 	postdata := url.Values{}
 	header := make(http.Header)
 	header.Set("Users-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0")
