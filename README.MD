@@ -12,11 +12,12 @@ users:
   "vpork":
     - "user_name": "账号1"
       "user_password": "密码1"
+      "domain": "https://cut.xn--um0a7bta.org"
     - "user_name": "账号2"
       "user_password": "密码2"
       "cqq": "账号2 的专属推送qq，不配置的话，走全局配置。"
       "qq_token": "账号2 的专属推送qq 对应的token"
-      "domain": "https://forever.pork16.com"  # 设定自定义的配置域名，用于机场换地址后免编译更新覆盖地址。或者同样一套架构的新机场。
+      "domain": "https://cut.xn--um0a7bta.org"  # 设定自定义的配置域名，用于机场换地址后免编译更新覆盖地址。或者同样一套架构的新机场。
   "vpork_vip": [ ]
   "cdpc": [ ]
   "liuns": [ ]
